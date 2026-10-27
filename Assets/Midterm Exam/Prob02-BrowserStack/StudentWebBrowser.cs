@@ -31,6 +31,16 @@ namespace MidtermExam.Prob02
         {
             // TODO: เขียนคำตอบแทนคำสั่ง throw exception ด้านล่าง
             throw new NotImplementedException();
+            if (currentUrl == null)
+            { 
+                currentUrl = url;
+                if (backHistory.Count > 0)
+                {
+                    backHistory.Pop();
+                    
+                }
+                return ;
+            }
         }
 
         /// <summary>ย้อนกลับไปยังหน้าล่าสุดในประวัติย้อนกลับหนึ่งขั้น</summary>
@@ -42,6 +52,16 @@ namespace MidtermExam.Prob02
         {
             // TODO: เขียนคำตอบแทนคำสั่ง throw exception ด้านล่าง
             throw new NotImplementedException();
+            if (backHistory.Count <= 0)
+            {
+                return;
+            }
+            backHistory.Peek();
+
+            return;
+
+
+
         }
 
         /// <summary>ไปข้างหน้าไปยังหน้าล่าสุดในประวัติไปข้างหน้าหนึ่งขั้น</summary>
@@ -53,6 +73,11 @@ namespace MidtermExam.Prob02
         {
             // TODO: เขียนคำตอบแทนคำสั่ง throw exception ด้านล่าง
             throw new NotImplementedException();
+            if (forwardHistory.Count > 0)
+            {
+                forwardHistory.Peek();
+                return ;
+            }    
         }
 
         /// <summary>อ่าน URL ของหน้าปัจจุบัน โดยไม่เปลี่ยนหน้าหรือประวัติใด ๆ</summary>
@@ -62,6 +87,11 @@ namespace MidtermExam.Prob02
             // TODO: คืนค่าหน้าที่ติดตามอยู่ใน currentUrl แทนคำสั่ง throw ด้านล่าง
             // เมธอดนี้ใช้เพื่ออ่านสถานะเท่านั้น จึงไม่ต้อง Push(), Pop() หรือ Clear() ประวัติ
             throw new NotImplementedException();
+            if (currentUrl != null)
+            {
+                currentUrl = string.Empty;
+                return currentUrl;
+            }
         }
     }
 }

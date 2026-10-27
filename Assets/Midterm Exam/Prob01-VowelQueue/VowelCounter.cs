@@ -8,6 +8,7 @@ namespace MidtermExam.Prob01
         /// <summary>
         /// ข้อ 01: นับจำนวนสระภาษาอังกฤษตัวพิมพ์เล็กในคิว โดยใช้หลัก FIFO
         /// (สมาชิกที่เข้าก่อนออกก่อน) และรักษาสมาชิกกับลำดับของคิวเดิม
+        
         /// </summary>
         /// <param name="alphabets">
         /// คิวข้อความที่ต้องการตรวจ นับเฉพาะ "a", "e", "i", "o", "u" และนับตัวซ้ำทุกตัว
@@ -24,6 +25,21 @@ namespace MidtermExam.Prob01
         {
             // TODO: เขียนคำตอบแทนคำสั่ง throw exception ด้านล่าง
             throw new NotImplementedException();
+            
+            Queue<string> alphabet = new();
+            
+            for (int i = alphabets.Count - 1; i >= 0; i--)
+            {
+                for (int j = 0; j < alphabets.Count; j++)
+                {
+                    i = i + j;
+                    if (i < alphabets.Count - 1)
+                    {
+                        alphabets.Enqueue(alphabets.Dequeue());
+                    }
+                    return i;
+                }
+            }
         }
     }
 }
